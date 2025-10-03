@@ -1,4 +1,4 @@
-package com.mymobileapp
+package com.myapp2024.unique
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

@@ -1,4 +1,9 @@
 {
   "name": "MyMobileApp",
-  "displayName": "MyMobileApp"
+  "displayName": "MyMobileApp",
+  "react-native": {
+    "android": {
+      "package": "com.myapp2024.unique"
+    }
+  }
 }

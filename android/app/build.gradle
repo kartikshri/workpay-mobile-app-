@@ -77,9 +77,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.mymobileapp"
+    namespace "com.myapp2024.unique"
     defaultConfig {
-        applicationId "com.mymobileapp"
+        applicationId "com.myapp2024.unique"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

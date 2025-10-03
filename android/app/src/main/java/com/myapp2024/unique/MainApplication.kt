@@ -1,4 +1,4 @@
-package com.mymobileapp
+package com.myapp2024.unique
 
 import android.app.Application
 import com.facebook.react.PackageList
