@@ -12,8 +12,16 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import LoginScreen from './src/screens/LoginScreen';
-import LoginSuccessScreen from './src/screens/LoginSuccessScreen';
-import { RootStackParamList } from './src/types/navigation';
+import HomeScreen from './src/screens/HomeScreen';
+import RoleSelectionScreen from './src/screens/RoleSelectionScreen';
+
+// Define the type for the navigation stack parameters
+export type RootStackParamList = {
+  Login: undefined;
+  LoginSuccess: undefined;
+  Home: undefined;
+  RoleSelection: { token: string; email?: string };
+};
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -29,11 +37,18 @@ function App() {
           />
           <Stack.Screen 
             name="LoginSuccess" 
-            component={LoginSuccessScreen}
-            options={{ 
-              title: 'Login Success',
-              headerBackTitle: 'Back'
-            }}
+            component={LoginScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen 
+            name="RoleSelection" 
+            component={RoleSelectionScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen 
+            name="Home" 
+            component={HomeScreen}
+            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>
