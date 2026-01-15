@@ -14,6 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import RoleSelectionScreen from './src/screens/RoleSelectionScreen';
+import ClientProfileScreen from './src/screens/ClientProfileScreen';
 
 // Define the type for the navigation stack parameters
 export type RootStackParamList = {
@@ -21,6 +22,7 @@ export type RootStackParamList = {
   LoginSuccess: undefined;
   Home: undefined;
   RoleSelection: { token: string; email?: string };
+  ClientProfile: { token: string; email?: string };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -43,6 +45,11 @@ function App() {
           <Stack.Screen 
             name="RoleSelection" 
             component={RoleSelectionScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen 
+            name="ClientProfile" 
+            component={ClientProfileScreen}
             options={{ headerShown: false }}
           />
           <Stack.Screen 

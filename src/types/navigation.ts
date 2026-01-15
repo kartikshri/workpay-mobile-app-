@@ -16,6 +16,7 @@ export type RootStackParamList = {
   
   // User Screens
   Profile: undefined;
+  ClientProfile: { token: string; email?: string };
   OrderHistory: undefined;
   OrderDetails: { orderId: string };
   

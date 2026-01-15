@@ -19,13 +19,6 @@ const RoleSelectionScreen = ({ route }: any) => {
   const [selectedRole, setSelectedRole] = useState<RoleOption>(null);
   const navigation = useNavigation<NavProp>();
 
-  const handleContinue = () => {
-    if (!selectedRole) return;
-    
-    // Save role selection and navigate to appropriate screen
-    // For now, we'll navigate to Home regardless of selection
-    navigation.navigate('Home');
-  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -40,7 +33,10 @@ const RoleSelectionScreen = ({ route }: any) => {
             styles.roleOption,
             selectedRole === 'hire' && styles.selectedOption
           ]}
-          onPress={() => setSelectedRole('hire')}
+          onPress={() => {
+            setSelectedRole('hire');
+            navigation.navigate('ClientProfile', { token, email });
+          }}
         >
           <View style={styles.iconContainer}>
             <Text style={styles.icon}>👤</Text>
@@ -56,7 +52,10 @@ const RoleSelectionScreen = ({ route }: any) => {
             styles.roleOption,
             selectedRole === 'work' && styles.selectedOption
           ]}
-          onPress={() => setSelectedRole('work')}
+          onPress={() => {
+            setSelectedRole('work');
+            navigation.navigate('FreelancerOnboarding', { token, email });
+          }}
         >
           <View style={styles.iconContainer}>
             <Text style={styles.icon}>💼</Text>
@@ -72,7 +71,10 @@ const RoleSelectionScreen = ({ route }: any) => {
             styles.roleOption,
             selectedRole === 'both' && styles.selectedOption
           ]}
-          onPress={() => setSelectedRole('both')}
+          onPress={() => {
+            setSelectedRole('both');
+            navigation.navigate('Home');
+          }}
         >
           <View style={styles.iconContainer}>
             <Text style={styles.icon}>👥</Text>
@@ -83,16 +85,6 @@ const RoleSelectionScreen = ({ route }: any) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[
-            styles.continueButton,
-            !selectedRole && styles.disabledButton
-          ]}
-          onPress={handleContinue}
-          disabled={!selectedRole}
-        >
-          <Text style={styles.continueButtonText}>Continue</Text>
-        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -160,21 +152,6 @@ const styles = StyleSheet.create({
   optionSubtitle: {
     fontSize: 14,
     color: '#999999',
-  },
-  continueButton: {
-    backgroundColor: '#3B82F6',
-    borderRadius: 8,
-    padding: 16,
-    alignItems: 'center',
-    marginTop: 'auto',
-  },
-  disabledButton: {
-    backgroundColor: '#3B82F680',
-  },
-  continueButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
   },
 });
 
